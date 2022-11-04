@@ -4,7 +4,49 @@ import numpy as np
 import numpy.testing as npt
 import pytest
 
+# with parameterization
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        ([[0, 0], [0, 0], [0, 0]], [0, 0]),     # test is first 3, then expected is the last
+        ([[1, 2], [3, 4], [5, 6]], [3, 4]),
+    ])
 
+def test_daily_mean(test, expected):
+    """Test mean function works for array of zeroes and positive integers."""
+    from inflammation.models import daily_mean
+    npt.assert_array_equal(daily_mean(np.array(test)), np.array(expected))
+   
+
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        ([[0, 0], [0, 0], [0, 0]], [0, 0]),     # test is first 3, then expected is the last
+        ([[5, 2, 9], [36, 4, 31], [5, 62, 7]], [36, 62, 31]),
+    ])
+
+def test_daily_max(test, expected):
+    """Test max function works for our test and expected"""
+    from inflammation.models import daily_max
+    npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
+
+
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        ([[0, 0], [0, 0], [0, 0]], [0, 0]),     # test is first 3, then expected is the last
+        ([[5, 2, 9], [36, 4, 31], [5, 62, 7]], [5, 2, 7]),
+    ])
+
+def test_daily_min(test, expected):
+    """Test min function works for our test and expected"""
+    from inflammation.models import daily_min
+    npt.assert_array_equal(daily_min(np.array(test)), np.array(expected))
+
+
+
+
+# without parameterization
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
     from inflammation.models import daily_mean
