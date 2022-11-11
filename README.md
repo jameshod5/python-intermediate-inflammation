@@ -24,3 +24,12 @@ The following optional packages are required to run Inflam's unit tests:
 
 - [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
+
+## Install
+
+- Clone to repo with "git clone <repo_url>
+- Install modules with "pip install e ."
+- Run "pytest" within main folder to ensure working correctly
+
+## Contributing
+- Create an issue [here](https://github.com/jameshod5/python-intermediate-inflammation/issues)
